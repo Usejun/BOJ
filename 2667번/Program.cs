@@ -34,7 +34,7 @@ namespace Boj
                     if (!visitied[i, j] && maps[i, j] == 1)
                     {
                         number++;
-                        Dfs(i, j);
+                        Find(i, j);
                     }
 
             Array.Sort(group, 0, number);
@@ -42,7 +42,7 @@ namespace Boj
             for (int i = 0; i < number; i++)            
                 Console.WriteLine(group[i]);
             
-            void Dfs(int y, int x)
+            void Find(int y, int x)
             {
                 if (x < 0 || y < 0 || x >= n || y >= n || visitied[y, x] || maps[y, x] == 0)
                     return;
@@ -51,10 +51,10 @@ namespace Boj
                 group[number - 1]++;
                 maps[y, x] = number;
 
-                Dfs(y - 1, x);
-                Dfs(y + 1, x);
-                Dfs(y, x - 1);
-                Dfs(y, x + 1);
+                Find(y - 1, x);
+                Find(y + 1, x);
+                Find(y, x - 1);
+                Find(y, x + 1);
             }
         }
     }
