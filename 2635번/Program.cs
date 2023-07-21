@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
 
-namespace CodingTest
+namespace Boj
 {
     internal class Program
     {     
@@ -16,35 +16,34 @@ namespace CodingTest
         {
             int n = int.Parse(Console.ReadLine());
             int max = 1;
-            int first = n;
+            int start = n;
 
-            for (int i = n; i > 0 ; --i)
+            for (int i = n; i > 0; --i)
             {
-                int r = find(n, i, 1);
-                if (max < r)
+                int result = find(n, i, 1);
+                if (max < result)
                 {
-                    first = i;
-                    max = r;
+                    start = i;
+                    max = result;
                 }
             }
 
             Console.WriteLine(max + 1);
-            find(n, first, 1, true);
+            find(n, start, 1, true);
 
-            int find(int f, int s, int c, bool display = false)
+            int find(int first, int second, int count, bool display = false)
             {
-                if (display)                
-                    Console.Write(f + " ");
-                int r = f - s;
-                if (r < 0)
+                if (display)
+                    Console.Write(first + " ");
+                int result = first - second;
+                if (result < 0)
                 {
                     if (display)
-                        Console.Write(s + " ");
-                    return c;
+                        Console.Write(second + " ");
+                    return count;
                 }
 
-                return find(s, r, c + 1, display);
-
+                return find(second, result, count + 1, display);
             }
         }
     }
