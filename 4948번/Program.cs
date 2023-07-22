@@ -14,24 +14,25 @@ namespace Boj
     {                
         static void Main(string[] args)
         {
-            var primeNumber = new int[123456 * 2 + 1];
+            var primeNumber = Enumerable.Range(0, 246913).Select(n => true).ToArray();
 
-            for (int i = 1; i <= 123456 * 2; i++)
+            for (int i = 2; i < primeNumber.Length; i++)
             {
-                bool isPrime = true;
-                for (int j = 2; j * j <= i && isPrime; j++)
-                    if (i != j && i % j == 0)
-                        isPrime = false;
-                if (isPrime)
-                    primeNumber[i]++;               
+                if (!primeNumber[i])
+                    continue;
+                for (int j = 2; i * j < primeNumber.Length ; j++)
+                    primeNumber[i * j] = false;
+                primeNumber[i] = true;
             }
 
             while (true)
             {
                 int n = int.Parse(Console.ReadLine());
+                if (n == 0) break;
                 int count = 0;
-                for (int i = n + 1; i <= 2 * n; i++)                
-                    count += primeNumber[i];
+                for (int i = n + 1; i <= 2 * n; i++)
+                    if (primeNumber[i])
+                        count++;
                 Console.WriteLine(count);
             }
         }
