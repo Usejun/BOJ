@@ -7,9 +7,8 @@ using System.Collections;
 using System.Threading.Tasks;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
-using System.Runtime.InteropServices;
 
-namespace CodingTest
+namespace Boj
 {
     internal class Program
     {
