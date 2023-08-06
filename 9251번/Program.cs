@@ -6,10 +6,8 @@ using System.Numerics;
 using System.Collections;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
-using System.Security.Cryptography;
-using System.Reflection;
 
-namespace CodingTest
+namespace Boj
 {
     internal class Program
     {
