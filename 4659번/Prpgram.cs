@@ -7,7 +7,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
 
-namespace CodingTest
+namespace Boj
 {
     internal class Program
     {
