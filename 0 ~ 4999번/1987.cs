@@ -36,7 +36,7 @@ namespace Boj
                     int nx = x + dx[i];
                     int ny = y + dy[i];
 
-                    if (nx >= 0 && nx < n && ny >= 0 && ny < n && !set.Contains(map[ny][nx]))
+                    if (nx >= 0 && nx < m && ny >= 0 && ny < n && !set.Contains(map[ny][nx]))
                     {
                         set.Add(map[ny][nx]);
                         Dfs(nx, ny, length + 1);
