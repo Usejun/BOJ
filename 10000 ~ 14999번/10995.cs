@@ -1,0 +1,2 @@
+int n = int.Parse(Console.ReadLine());
+Console.Write(string.Join("\n", Enumerable.Range(1, n).Select(i => i % 2 == 0 ? string.Join("",Enumerable.Repeat(" *", n)) : string.Join("", Enumerable.Repeat("* ", n)))));
