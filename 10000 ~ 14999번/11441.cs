@@ -1,3 +1,4 @@
+using StreamWriter w = new(Console.OpenStandardOutput());
 int n = int.Parse(Console.ReadLine());
 var a = Console.ReadLine().Split().Select(int.Parse).ToArray();
 var s = new int[n + 1];
@@ -10,5 +11,5 @@ while (k-- > 0)
 {
     var input = Console.ReadLine().Split().Select(int.Parse).ToArray();
     int i = input[0], j = input[1];
-    Console.WriteLine(s[j] - s[i - 1]);
+    w.WriteLine(s[j] - s[i - 1]);
 }
