@@ -1,0 +1,1 @@
+Console.Write(Console.ReadLine().Count("aeiou".Contains));
