@@ -1,36 +1,17 @@
-var input = Console.ReadLine().Split().Select(int.Parse).ToArray();
-int n = input[0], m = input[1], c = 0;
-var dna = Console.ReadLine();
-var condition = Console.ReadLine().Split().Select(int.Parse).ToArray();
-var count = new int[4];
+using StreamWriter wt = new(Console.OpenStandardOutput());
+using StreamReader rd = new(Console.OpenStandardInput());
+var input = rd.ReadLine().Split().Select(int.Parse).ToArray();
+int count = 0, a = 0, b = 0;
+count = input.Sum(i => i / 3);
+input = input.Select(i => i % 3).ToArray();
+a = input.Count(i => i != 0);
 
-for (int i = 0; i < m; i++)
-    Add(dna[i], 1);
-
-if (Equal()) c++;
-
-for (int i = 0; i < n - m; i++)
+while (input.Sum() != 0)
 {
-    Add(dna[i], -1);
-    Add(dna[i + m], 1);
-    if (Equal()) c++;
+    if (input[0] > 0) input[0]--;
+    if (input[1] > 0) input[1]--;
+    if (input[2] > 0) input[2]--;
+    b++;
 }
 
-Console.Write(c);
-
-bool Equal()
-{
-    for (int j = 0; j < 4; j++)
-        if (condition[j] > count[j])
-            return false;
-
-    return true;
-}
-
-int Add(char c, int v)
-{
-    if (c == 'A') return count[0] += v;
-    if (c == 'C') return count[1] += v;
-    if (c == 'G') return count[2] += v;
-    return count[3] += v;
-}
+wt.Write(count + Math.Min(a, b));
