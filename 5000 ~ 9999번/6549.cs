@@ -9,10 +9,10 @@ while ((input = Console.ReadLine()) != "0")
 	sw.WriteLine(Max(1, n-1));
 }
 
-long Max(int s,  e)
+long Max(long s, long e)
 {
 	if (s == e) return a[s];
-	int m = (s + e) / 2, l = m, r = m + 1, h = int.MaxValue, w = a[r];
+	long m = (s + e) / 2, l = m, r = m + 1, h = int.MaxValue, w = a[r];
 	
 	while (l >= s && r <= e)
 	{
